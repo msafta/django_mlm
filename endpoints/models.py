@@ -57,21 +57,22 @@ class MLAlgorithmStatus(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     parent_mlalgorithm = models.ForeignKey(MLAlgorithm, on_delete=models.CASCADE, related_name = "status")
 
-    class MLRequest(models.Model):
-        """
-        The MLRequest will keep information about all requests to ML algorithms.
 
-        Attributes:
-            input_data: The input data to ML algorithm in JSON format.
-            full_response: The response of the ML algorithm.
-            response: The response of the ML algorithm in JSON format.
-            feedback: The feedback about the response in JSON format.
-            created_at: The date when request was created.
-            parent_mlalgorithm: The reference to MLAlgorithm used to compute response.
-        """
-        input_data = models.CharField(max_length=10000)
-        full_response = models.CharField(max_length=10000)
-        response = models.CharField(max_length=10000)
-        feedback = models.CharField(max_length=10000, blank=True, null=True)
-        created_at = models.DateTimeField(auto_now_add=True, blank=True)
-        parent_mlalgorithm = models.ForeignKey(MLAlgorithm, on_delete=models.CASCADE)
+class MLRequest(models.Model):
+    """
+    The MLRequest will keep information about all requests to ML algorithms.
+
+    Attributes:
+        input_data: The input data to ML algorithm in JSON format.
+        full_response: The response of the ML algorithm.
+        response: The response of the ML algorithm in JSON format.
+        feedback: The feedback about the response in JSON format.
+        created_at: The date when request was created.
+        parent_mlalgorithm: The reference to MLAlgorithm used to compute response.
+    """
+    input_data = models.CharField(max_length=10000)
+    full_response = models.CharField(max_length=10000)
+    response = models.CharField(max_length=10000)
+    feedback = models.CharField(max_length=10000, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    parent_mlalgorithm = models.ForeignKey(MLAlgorithm, on_delete=models.CASCADE)
