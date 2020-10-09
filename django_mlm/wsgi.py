@@ -38,8 +38,8 @@ try:
                            algorithm_object=rf,
                            algorithm_name="random forest",
                            algorithm_status="production",
-                           algorithm_version="0.0.1",
-                           owner="M",
+                           algorithm_version="0.0.2",
+                           owner="Marius",
                            algorithm_description="Random Forest with simple pre- and post-processing",
                            algorithm_code=inspect.getsource(RandomForestClassifier))
 
